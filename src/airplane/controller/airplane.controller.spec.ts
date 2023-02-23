@@ -28,7 +28,7 @@ describe('AirplaneController', () => {
   describe('RegisterMassiveAirplanes_test', () => {
     it('should persist airplanes information', async() => {
       
-      // jest.spyOn(airplaneService, 'registerMassiveAirplanes').mockImplementation();
+      jest.spyOn(airplaneService, 'registerMassiveAirplanes').mockImplementation();
 
       airplaneController.registerMassiveAirplanes(
         [
@@ -44,7 +44,7 @@ describe('AirplaneController', () => {
         ]
       );
 
-      // expect(airplaneService.registerMassiveAirplanes).toBeCalledTimes(1);
+      expect(airplaneService.registerMassiveAirplanes).toBeCalledTimes(1);
       expect(airplaneController.registerMassiveAirplanes).toBeDefined();
     });
   });
@@ -52,7 +52,7 @@ describe('AirplaneController', () => {
   describe('DeleteMassiveAirplanes_test', () => {
     it('should delete airplanes', async() => {
       
-      // jest.spyOn(airplaneService, 'deleteMassiveAirplanes').mockImplementation();
+      jest.spyOn(airplaneService, 'deleteMassiveAirplanes').mockImplementation();
 
       airplaneController.deleteMassiveAirplanes(
         [
@@ -68,7 +68,7 @@ describe('AirplaneController', () => {
         ]
       );
 
-      // expect(airplaneService.deleteMassiveAirplanes).toBeCalledTimes(1);
+      expect(airplaneService.deleteMassiveAirplanes).toBeCalledTimes(1);
       expect(airplaneController.deleteMassiveAirplanes).toBeDefined();
     });
   });
@@ -77,7 +77,7 @@ describe('AirplaneController', () => {
   describe('GetAllAirplanesWithFilters_test', () => {
     it('should get all airplanes with filters', async() => {
       
-      // jest.spyOn(airplaneService, 'getAllAirplanesWithFilters').mockImplementation();
+      jest.spyOn(airplaneService, 'getAllAirplanesWithFilters').mockImplementation();
 
       airplaneController.getAllAirplanesWithFilters(
         {
@@ -90,7 +90,7 @@ describe('AirplaneController', () => {
         }
       );
 
-      // expect(airplaneService.getAllAirplanesWithFilters).toBeCalledTimes(1);
+      expect(airplaneService.getAllAirplanesWithFilters).toBeCalledTimes(1);
       expect(airplaneController.getAllAirplanesWithFilters).toBeDefined();
     });
   });
@@ -99,7 +99,7 @@ describe('AirplaneController', () => {
   describe('UpdateMassiveAirplanesById_test', () => {
     it('should update airplanes information by id', async() => {
       
-      // jest.spyOn(airplaneService, 'updateMassiveAirplanesById').mockImplementation();
+      jest.spyOn(airplaneService, 'updateMassiveAirplanesById').mockImplementation();
 
       airplaneController.updateMassiveAirplanesById(
         [
@@ -116,7 +116,7 @@ describe('AirplaneController', () => {
         ]
       );
 
-      // expect(airplaneService.updateMassiveAirplanesById).toBeCalledTimes(1);
+      expect(airplaneService.updateMassiveAirplanesById).toBeCalledTimes(1);
       expect(airplaneController.updateMassiveAirplanesById).toBeDefined();
     });
   });
