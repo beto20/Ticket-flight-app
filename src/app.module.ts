@@ -6,6 +6,8 @@ import { TicketController } from './ticket/controller/ticket.controller';
 import { AdminModule } from './admin/admin.module';
 import { FlightController } from './admin/controller/flight.controller';
 import { FlightService } from './admin/service/flight.service';
+import { AirplaneModule } from './airplane/airplane.module';
+import { CountryModule } from './country/country.module';
 
 
 @Module({
@@ -19,7 +21,9 @@ import { FlightService } from './admin/service/flight.service';
       database: 'postgres',
       autoLoadEntities: true,
       synchronize: true
-    })],
+    }),
+    AirplaneModule,
+    CountryModule],
   controllers: [TicketController, FlightController],
   providers: [TicketService, FlightService],
 })
