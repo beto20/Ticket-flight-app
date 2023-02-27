@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { TicketDto } from '../model/dto/ticket.dto';
 import { FlightDto } from '../model/dto/flight.dto';
 import { TicketService } from '../service/ticket.service';
@@ -12,5 +12,10 @@ export class TicketController {
     @Post()
     async searchFlights(@Body() ticket: TicketDto): Promise<FlightDto[]> {
         return this.ticketService.getAllFlights(ticket);
+    }
+
+    @Get()
+    getFlightsWithFilters(@Param('filter') filter: Filter): Promise<FlightDto[]> {
+        return this.ticketService.getFlightsWithFilters(filter);
     }
 }

@@ -1,0 +1,8 @@
+enum Filter {
+    CHEAP,
+    FAST,
+    EARLY_DEPARTURE,
+    EARLY_ARRIVE,
+    LAST_DEPARTURE,
+    LAST_ARRIVE,
+}

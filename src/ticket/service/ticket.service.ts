@@ -40,4 +40,52 @@ export class TicketService {
         return flightResponse;
     }
 
+    async getFlightsWithFilters(filter: Filter): Promise<FlightDto[]> {
+
+        let query = `SELECT * FROM public.tb_flight` 
+
+        switch (filter) {
+            case Filter.CHEAP:
+                query = `SELECT * FROM public.tb_flight order by price asc`; 
+                break;
+            case Filter.FAST:
+                query = `SELECT * FROM public.tb_flight order by duration asc`; 
+                break;
+            case Filter.EARLY_DEPARTURE:
+                query = `SELECT * FROM public.tb_flight order by "departureTime" asc`; 
+                break;
+            case Filter.EARLY_ARRIVE:
+                query = `SELECT * FROM public.tb_flight order by "arriveTime" asc`; 
+                break;
+            case Filter.LAST_DEPARTURE:
+                query = `SELECT * FROM public.tb_flight order by "departureTime" desc`; 
+                break;
+            case Filter.LAST_ARRIVE:
+                query = `SELECT * FROM public.tb_flight order by "arriveTime" desc`; 
+                break;
+            default:
+                break;
+        }
+
+        const flightResponse =  await this.ticketRepository.query(query)
+        .then(flightsEntity => {
+            return flightsEntity.map(f => {
+                return new FlightDto(
+                    false,
+                    f.price,
+                    f.departureTime,
+                    f.arriveTime,
+                    f.duration,
+                    f.from,
+                    f.to,
+                    f.type
+                );
+            });
+        }).catch(e => {
+            console.error("Error:: ", e)
+        })
+
+        return flightResponse;
+    }
+
 }

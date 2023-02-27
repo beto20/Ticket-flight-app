@@ -8,6 +8,7 @@ import { FlightController } from './admin/controller/flight.controller';
 import { FlightService } from './admin/service/flight.service';
 import { AirplaneModule } from './airplane/airplane.module';
 import { CountryModule } from './country/country.module';
+import { OfferModule } from './offer/offer.module';
 
 
 @Module({
@@ -23,7 +24,8 @@ import { CountryModule } from './country/country.module';
       synchronize: true
     }),
     AirplaneModule,
-    CountryModule],
+    CountryModule,
+    OfferModule],
   controllers: [TicketController, FlightController],
   providers: [TicketService, FlightService],
 })
