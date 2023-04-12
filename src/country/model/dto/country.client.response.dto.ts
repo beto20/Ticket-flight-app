@@ -1,29 +1,21 @@
 export class CountryClientResponseDto {
-    country: Country;
-    
-    constructor(country: Country) {
-        this.country = country
-    }
-}
-
-export class Country {
     name: Name;
+    capital: string[];
+    region: string;
+    subregion: string;
 
-    constructor(name: Name) {
+    constructor(name: Name, capital: string[], region: string, subregion: string) {
         this.name = name
+        this.capital = capital
+        this.region = region
+        this.subregion = subregion
     }
 }
 
 export class Name {
     official: string;
-    capital: string;
-    region: string;
-    subregion: string;
 
-    constructor(official: string, capital: string, region: string, subregion: string) {
+    constructor(official: string) {
         this.official = official
-        this.capital = capital
-        this.region = region
-        this.subregion = subregion
     }
 }
