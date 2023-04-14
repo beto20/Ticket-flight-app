@@ -9,6 +9,9 @@ import { FlightService } from './admin/service/flight.service';
 import { AirplaneModule } from './airplane/airplane.module';
 import { CountryModule } from './country/country.module';
 import { OfferModule } from './offer/offer.module';
+import { AuthModule } from './auth/auth.module';
+import { UserModule } from './user/user.module';
+import { UserService } from './user/service/user.service';
 
 
 @Module({
@@ -25,8 +28,10 @@ import { OfferModule } from './offer/offer.module';
     }),
     AirplaneModule,
     CountryModule,
-    OfferModule],
+    OfferModule,
+    AuthModule,
+    UserModule],
   controllers: [TicketController, FlightController],
-  providers: [TicketService, FlightService],
+  providers: [TicketService, FlightService, UserService],
 })
 export class AppModule {}
