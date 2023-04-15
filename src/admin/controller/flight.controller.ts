@@ -8,12 +8,16 @@ import { FlightWebResponseDto } from '../model/dto/flight.web.response.dto';
 import { Role } from 'src/user/model/enum/role';
 import { Roles } from 'src/user/util/roles.decorator';
 import { AuthGuard } from 'src/auth/util/auth.guard';
+import { ApiBody, ApiTags, ApiResponse } from '@nestjs/swagger';
 
+@ApiTags('Flights')
 @Controller('api/v1/back/flights')
 export class FlightController {
 
     constructor(private readonly flightService: FlightService) {}
 
+    @ApiBody({ type: [FlightDto] })
+    @ApiResponse({ status: 403, description: 'Forbidden.'})
     @UseGuards(AuthGuard)
     @Roles(Role.admin)
     @Post('/massive-save')
@@ -21,6 +25,8 @@ export class FlightController {
         this.flightService.registerMassiveFlights(flights);
     }
 
+    @ApiBody({ type: [FlightWebDeleteDto] })
+    @ApiResponse({ status: 403, description: 'Forbidden.'})
     @UseGuards(AuthGuard)
     @Roles(Role.admin)
     @Delete('/massive-delete')
@@ -28,6 +34,8 @@ export class FlightController {
         this.flightService.deleteMassiveFlights(flights);
     }
 
+    @ApiBody({ type: [FlightWebFilterDto] })
+    @ApiResponse({ status: 403, description: 'Forbidden.'})
     @UseGuards(AuthGuard)
     @Roles(Role.admin)
     @Get('/get-with-filters')
@@ -35,6 +43,8 @@ export class FlightController {
         return this.flightService.getAllFlightsWithFilters(flights);
     }
 
+    @ApiBody({ type: [FlightWebUpdateDto] })
+    @ApiResponse({ status: 403, description: 'Forbidden.'})
     @UseGuards(AuthGuard)
     @Roles(Role.admin)
     @Put('/massive-update')
