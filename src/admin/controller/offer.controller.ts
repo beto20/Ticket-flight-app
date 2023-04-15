@@ -1,5 +1,8 @@
-import { Body, Controller, Get } from "@nestjs/common";
+import { Body, Controller, Get, UseGuards } from '@nestjs/common';
+import { AuthGuard } from 'src/auth/util/auth.guard';
 import { OfferWebResponseDto } from "src/offer/model/dto/offer.web.response.dto";
+import { Role } from 'src/user/model/enum/role';
+import { Roles } from 'src/user/util/roles.decorator';
 
 @Controller('api/v1/back/offers')
 export class OfferController {
@@ -7,6 +10,8 @@ export class OfferController {
     constructor() {
     }
 
+    @UseGuards(AuthGuard)
+    @Roles(Role.admin)
     @Get()
     getSpecialOffers(): OfferWebResponseDto[] {
         return null

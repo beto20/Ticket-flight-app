@@ -7,13 +7,11 @@ import { CountryWebResponseDto } from 'src/country/model/dto/country.web.respons
 @Injectable()
 export class CacheService {
 
-  constructor(@Inject(CACHE_MANAGER) private readonly cacheManager: Cache) {}
+  constructor(@Inject(CACHE_MANAGER) private readonly cacheManager: Cache) { }
 
   async persistCountryParams(countries: CountryDto[]) {
     countries.forEach(c => {
-      if(c.region === "Americas" && c.subregion === "South America") {
-        this.cacheManager.set(c.official, `${c.official}||${c.capital}`);
-      }
+      this.cacheManager.set(c.official, `${c.official}||${c.capital}`);
     })
   }
 
@@ -26,12 +24,12 @@ export class CacheService {
   }
 
   async getCountryParams(): Promise<CountryWebResponseDto[]> {
-    let listOfCountries: CountryWebResponseDto[] = []; 
+    let listOfCountries: CountryWebResponseDto[] = [];
     let redisKeys: string[] = []
 
     redisKeys = await this.getAllKeys();
 
-    if(redisKeys.length === 0) return listOfCountries;
+    if (redisKeys.length === 0) return listOfCountries;
 
     for (const key of redisKeys) {
       let countryWebResponseDto: CountryWebResponseDto = new CountryWebResponseDto("", "")
