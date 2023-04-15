@@ -2,10 +2,10 @@ import { Body, Controller, Get, Param, Post, UseGuards } from '@nestjs/common';
 import { TicketDto } from '../model/dto/ticket.dto';
 import { FlightDto } from '../model/dto/flight.dto';
 import { TicketService } from '../service/ticket.service';
-import { SkipAuth } from 'src/auth/auth.decorator';
-import { Roles } from 'src/user/roles.decorator';
-import { Role } from 'src/user/role';
-import { AuthGuard } from 'src/auth/auth.guard';
+import { SkipAuth } from 'src/auth/util/auth.decorator';
+import { Roles } from 'src/user/util/roles.decorator';
+import { AuthGuard } from 'src/auth/util/auth.guard';
+import { Role } from 'src/user/model/enum/role';
 
 @Controller('api/v1/flights')
 export class TicketController {
