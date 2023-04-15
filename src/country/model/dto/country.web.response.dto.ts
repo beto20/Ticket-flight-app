@@ -1,13 +1,9 @@
 export class CountryWebResponseDto {
-    name: string;
-    region: string;
-    subRegion: string;
-    capital: string;
+    name: String;
+    capital: String;
 
-    constructor(name: string, region: string, subRegion: string, capital: string) {
+    constructor(name: String, capital: String) {
         this.name = name
-        this.region = region
-        this.subRegion = subRegion
         this.capital = capital
     }
 }

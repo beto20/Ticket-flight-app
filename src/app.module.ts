@@ -1,5 +1,4 @@
 import { Module } from '@nestjs/common';
-import { TypeOrmModule } from '@nestjs/typeorm';
 import { TicketModule } from './ticket/ticket.module';
 import { TicketService } from './ticket/service/ticket.service';
 import { TicketController } from './ticket/controller/ticket.controller';
@@ -12,6 +11,8 @@ import { OfferModule } from './offer/offer.module';
 import { AuthModule } from './auth/auth.module';
 import { UserModule } from './user/user.module';
 import { UserService } from './user/service/user.service';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { RedisModule } from './cache/redis.module';
 
 
 @Module({
@@ -30,7 +31,9 @@ import { UserService } from './user/service/user.service';
     CountryModule,
     OfferModule,
     AuthModule,
-    UserModule],
+    UserModule,
+    RedisModule
+  ],
   controllers: [TicketController, FlightController],
   providers: [TicketService, FlightService, UserService],
 })
