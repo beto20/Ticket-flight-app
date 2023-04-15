@@ -5,7 +5,7 @@ import { Role } from 'src/user/model/enum/role';
 import { Roles } from 'src/user/util/roles.decorator';
 import { ApiBody, ApiTags, ApiResponse } from '@nestjs/swagger';
 
-@ApiTags('Offers')
+@ApiTags('Offers-Back')
 @Controller('api/v1/back/offers')
 export class OfferController {
 

@@ -10,7 +10,7 @@ import { Roles } from 'src/user/util/roles.decorator';
 import { AuthGuard } from 'src/auth/util/auth.guard';
 import { ApiBody, ApiTags, ApiResponse } from '@nestjs/swagger';
 
-@ApiTags('Flights')
+@ApiTags('Flights-Back')
 @Controller('api/v1/back/flights')
 export class FlightController {
 
