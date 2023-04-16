@@ -23,7 +23,7 @@ export class OfferService {
                     o.from,
                     o.to,
                     o.expirationDate,
-                    fromString(o.season),
+                    o.season,
                     o.isSeasonal,
                     o.isClientExclusive,
                     o.isLessRotation

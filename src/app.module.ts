@@ -5,7 +5,6 @@ import { TicketController } from './ticket/controller/ticket.controller';
 import { AdminModule } from './admin/admin.module';
 import { FlightController } from './admin/controller/flight.controller';
 import { FlightService } from './admin/service/flight.service';
-import { AirplaneModule } from './airplane/airplane.module';
 import { CountryModule } from './country/country.module';
 import { OfferModule } from './offer/offer.module';
 import { AuthModule } from './auth/auth.module';
@@ -27,7 +26,6 @@ import { RedisModule } from './cache/redis.module';
       autoLoadEntities: true,
       synchronize: true
     }),
-    AirplaneModule,
     CountryModule,
     OfferModule,
     AuthModule,

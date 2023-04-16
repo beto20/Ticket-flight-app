@@ -1,6 +1,6 @@
 import { Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
-import { AirplaneEntity } from "../model/entity/airplane.entity";
+import { AirplaneEntity } from "../../admin/model/entity/airplane.entity";
 import { Equal, Repository } from 'typeorm';
 import { AirplaneWebUpdateDto } from '../model/dto/airplane.web.update.dto';
 import { AirplaneWebFilterDto } from '../model/dto/airplane.web.filter.dto';

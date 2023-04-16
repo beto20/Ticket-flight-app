@@ -1,28 +1,28 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { ApiProperty } from '@nestjs/swagger';
 
-@Entity('tb_offer')
-export class OfferEntity {
-    @PrimaryGeneratedColumn("uuid")
+export class OffersWebDto {
+    @ApiProperty()
     id: string;
-    @Column()
+    @ApiProperty()
     offerPrice: number;
-    @Column()
+    @ApiProperty()
     regularPrice: number;
-    @Column()
+    @ApiProperty()
     from: string;
-    @Column()
+    @ApiProperty()
     to: string;
-    @Column()
+    @ApiProperty()
     expirationDate: string;
-    @Column()
+    @ApiProperty()
     season: string;
-    @Column()
+    @ApiProperty()
     isSeasonal: boolean;
-    @Column()
+    @ApiProperty()
     isClientExclusive: boolean;
-    @Column()
+    @ApiProperty()
     isLessRotation: boolean;
 
+    
     constructor(offerPrice: number, regularPrice: number, from: string, to: string,  expirationDate: string, season: string, isSeasonal: boolean, isClientExclusive: boolean, isLessRotation: boolean) {
         this.offerPrice = offerPrice;
         this.regularPrice = regularPrice;

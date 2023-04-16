@@ -1,14 +1,16 @@
-import { Body, Controller, Delete, Get, Post, Put } from "@nestjs/common";
+import { Body, Controller, Delete, Get, Post, Put, UseGuards } from '@nestjs/common';
 import { AirplaneWebDto } from '../model/dto/airplane.web.dto';
 import { AirplaneWebDeleteDto } from "../model/dto/airplane.web.delete.dto";
 import { AirplaneWebFilterDto } from '../model/dto/airplane.web.filter.dto';
 import { AirplaneWebResponseDto } from '../model/dto/airplane.web.response.dto';
 import { AirplaneWebUpdateDto } from '../model/dto/airplane.web.update.dto';
 import { AirplaneService } from "../service/airplane.service";
-import { SkipAuth } from "src/auth/util/auth.decorator";
-import { ApiBody, ApiTags } from '@nestjs/swagger';
+import { ApiBody, ApiTags, ApiResponse } from '@nestjs/swagger';
+import { Roles } from "src/user/util/roles.decorator";
+import { AuthGuard } from 'src/auth/util/auth.guard';
+import { Role } from 'src/user/model/enum/role';
 
-@ApiTags('Airplanes')
+@ApiTags('Airplanes-back')
 @Controller('api/v1/back/airplanes')
 export class AirplaneController {
     
@@ -16,28 +18,36 @@ export class AirplaneController {
     }
 
     @ApiBody({ type: [AirplaneWebDto] })
-    @SkipAuth()
+    @ApiResponse({ status: 403, description: 'Forbidden.'})
+    @UseGuards(AuthGuard)
+    @Roles(Role.admin)
     @Post('/massive-save')
     registerMassiveAirplanes(@Body() airplanes: AirplaneWebDto[]) {
         this.airplaneService.registerMassiveAirplanes(airplanes)
     }
 
     @ApiBody({ type: [AirplaneWebDeleteDto] })
-    @SkipAuth()
+    @ApiResponse({ status: 403, description: 'Forbidden.'})
+    @UseGuards(AuthGuard)
+    @Roles(Role.admin)
     @Delete('/massive-delete')
     deleteMassiveAirplanes(@Body() airplanes: AirplaneWebDeleteDto[]) {
         this.airplaneService.deleteMassiveAirplanes(airplanes)
     }
 
     @ApiBody({ type: [AirplaneWebFilterDto] })
-    @SkipAuth()
+    @ApiResponse({ status: 403, description: 'Forbidden.'})
+    @UseGuards(AuthGuard)
+    @Roles(Role.admin)
     @Get('/get-with-filters')
     getAllAirplanesWithFilters(@Body() airplane: AirplaneWebFilterDto): Promise<AirplaneWebResponseDto[]> {
         return this.airplaneService.getAllAirplanesWithFilters(airplane)
     }
 
     @ApiBody({ type: [AirplaneWebUpdateDto] })
-    @SkipAuth()
+    @ApiResponse({ status: 403, description: 'Forbidden.'})
+    @UseGuards(AuthGuard)
+    @Roles(Role.admin)
     @Put('/massive-update')
     updateMassiveAirplanesById(@Body() airplanes: AirplaneWebUpdateDto[]) {
         this.airplaneService.updateMassiveAirplanesById(airplanes)

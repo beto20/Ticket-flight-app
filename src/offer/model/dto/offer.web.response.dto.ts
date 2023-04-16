@@ -5,12 +5,12 @@ export class OfferWebResponseDto  {
     from: string;
     to: string;
     expirationDate: string;
-    season: Season;
+    season: string;
     isSeasonal: boolean;
     isClientExclusive: boolean;
     isLessRotation: boolean;
 
-    constructor(offerPrice: number, regularPrice: number, from: string, to: string, expirationDate: string, season: Season, isSeasonal: boolean, 
+    constructor(offerPrice: number, regularPrice: number, from: string, to: string, expirationDate: string, season: string, isSeasonal: boolean, 
         isClientExclusive: boolean, isLessRotation: boolean) {
         this.offerPrice = offerPrice
         this.regularPrice = regularPrice
