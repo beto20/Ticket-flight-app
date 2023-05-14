@@ -1,7 +1,7 @@
 ## Description
 Back-end application with business logic for flight tickets, and include back office features.
 
-Technologies used: TypeScript, Redis, TypeORM, Swagger, Jest
+Technologies used: TypeScript, NestJS, Redis, TypeORM, Swagger, Jest
 
 ## Installation
 
